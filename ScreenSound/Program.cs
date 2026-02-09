@@ -50,7 +50,10 @@ void ExibirOpcoesDoMenu()
             Console.WriteLine("Programa Encerrado!");
             break;
         default:
-            Console.WriteLine("Opção inválida!");
+            Console.WriteLine("Opção inválida! Tente novamente.");
+            Console.ReadKey();
+            Console.Clear();
+            ExibirOpcoesDoMenu();
             break;
     }
 }
@@ -151,3 +154,4 @@ void ExibirMediaDaBanda() {
     }
 }
 ExibirOpcoesDoMenu();
+
