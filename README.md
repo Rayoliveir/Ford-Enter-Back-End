@@ -33,6 +33,6 @@ Este projeto foi fundamental para colocar em prática conceitos importantes que 
 **Desenvolvido por Marcelly Oliveira**
 *Estudante de tecnologia apaixonado por resolver problemas e criar soluções criativas.*
 
-<a href="https://marcelly-oliveira.vercel.app/">Marcelly Oliveira - Portifólio</a>
+<a href="https://marcelly-oliveira.vercel.app/" target="_blank">Marcelly Oliveira - Portifólio</a>
 
 ---
