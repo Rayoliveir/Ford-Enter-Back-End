@@ -1,0 +1,21 @@
+OxenteBurguer/
+├── Controllers/              # Recebe as requisições (Get, Post, Put, Delete) 
+│   ├── ProdutosController.cs # Endpoints para o cardápio
+│   └── PedidosController.cs  # Endpoints para gerenciar os pedidos
+├── Data/                     # Configuração do banco de dados 
+│   ├── AppDbContext.cs       # Onde o C# se conecta com o MySQL
+│   └── Migrations/           # Arquivos que o EF Core gera para criar as tabelas [cite: 36, 107]
+├── DTOs/                     # Objetos de Transferência de Dados (Segurança e Limpeza) [cite: 33, 58, 111]
+│   ├── ProdutoResponseDTO.cs # O que a API devolve para o usuário
+│   └── PedidoCreateDTO.cs    # O que a API recebe quando alguém faz um pedido
+├── Enums/                    # Suas definições de tipo (já existentes) [cite: 19]
+│   └── StatusPedido.cs
+├── Models/                   # Suas Entidades do Banco de Dados [cite: 18, 57]
+│   ├── Produto.cs
+│   ├── Lanche.cs
+│   └── Pedido.cs
+├── Services/                 # Lógica de Negócio (Cálculos e Validações) 
+│   └── PedidoService.cs      # Regras como "CalcularTotal" e "FinalizarPedido"
+├── appsettings.json          # Onde você vai colocar a sua senha do MySQL 
+├── Program.cs                # O coração que configura tudo (Injeção de Dependência e JWT) [cite: 29, 72]
+└── OxenteBurguer.csproj      # Arquivo de configuração do projeto e pacotes NuGet
