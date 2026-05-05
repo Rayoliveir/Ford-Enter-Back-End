@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OxenteBurguer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c32082cfcbaa7448dbca5197079c4471051546a5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+693a8d5c8101ad4a9c3f0040814d6f7bc63cbb10")]
 [assembly: System.Reflection.AssemblyProductAttribute("OxenteBurguer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OxenteBurguer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
