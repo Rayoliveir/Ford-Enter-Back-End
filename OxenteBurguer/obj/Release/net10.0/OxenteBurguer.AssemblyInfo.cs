@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OxenteBurguer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b5869b794d181773e6a5270a38cb759b030430d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a9e06353e725346ba2719796c7a68b348beef03")]
 [assembly: System.Reflection.AssemblyProductAttribute("OxenteBurguer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OxenteBurguer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

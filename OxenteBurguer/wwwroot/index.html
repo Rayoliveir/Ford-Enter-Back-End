@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxente Burguer - Enterprise System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid solid fa-hamburger brand-icon"></i>
+            <h2>Oxente Burguer</h2>
+            <span>Gestão Comercial</span>
+        </div>
+        <nav class="sidebar-menu">
+            <button class="menu-item active" onclick="switchTab('tab-cardapio')">
+                <i class="fa-solid fa-book-open"></i> Cardápio
+            </button>
+            <button class="menu-item" onclick="switchTab('tab-pedidos')">
+                <i class="fa-solid fa-utensils"></i> Atendimento & Cozinha
+            </button>
+            <button class="menu-item" onclick="switchTab('tab-bi')">
+                <i class="fa-solid fa-chart-line"></i> Resumo de Vendas
+            </button>
+            <button class="menu-item" onclick="switchTab('tab-historico')">
+                <i class="fa-solid fa-clock-rotate-left"></i> Histórico Geral
+            </button>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section id="tab-cardapio" class="tab-content active">
+            <div class="page-header">
+                <h2>Cardápio Digital</h2>
+                <p>Gerencie e visualize os produtos integrados ao sistema.</p>
+            </div>
+            
+            <h3 class="section-title"><i class="fa-solid fa-burger"></i> Lanches Artesanais</h3>
+            <div id="grid-lanches" class="products-grid"></div>
+
+            <h3 class="section-title" style="margin-top: 2.5rem;"><i class="fa-solid fa-wine-glass"></i> Bebidas</h3>
+            <div id="grid-bebidas" class="products-grid"></div>
+        </section>
+
+        <section id="tab-pedidos" class="tab-content">
+            <div class="kanban-container">
+                <div class="kanban-column form-column">
+                    <div class="page-header">
+                        <h2>Nova Venda</h2>
+                        <p>Registre o pedido do cliente na mesa ou balcão.</p>
+                    </div>
+                    <form id="form-pedido" class="order-form" onsubmit="criarPedido(event)">
+                        <div class="form-group">
+                            <label for="cliente-nome">Nome do Cliente</label>
+                            <input type="text" id="cliente-nome" placeholder="Digite o nome completo" required minlength="3">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Selecione os Itens</label>
+                            <div id="lista-selecao-produtos" class="selection-list"></div>
+                        </div>
+
+                        <div class="order-summary-box">
+                            <h4>Resumo da Operação</h4>
+                            <div id="itens-selecionados-preview" class="preview-items-list">
+                                <p class="empty-text">Nenhum item selecionado</p>
+                            </div>
+                            <div class="total-row">
+                                <span>Valor Total:</span>
+                                <strong id="form-total-calculado">R$ 0,00</strong>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-block">
+                            <i class="fa-solid fa-check"></i> Finalizar e Enviar para Cozinha
+                        </button>
+                    </form>
+                </div>
+
+                <div class="kanban-column monitor-column">
+                    <div class="page-header">
+                        <h2>Monitor da Cozinha</h2>
+                        <p>Acompanhamento e alteração de status em tempo real.</p>
+                    </div>
+                    <div class="monitor-sections">
+                        <div class="monitor-box">
+                            <h4><i class="fa-solid fa-bell text-warning"></i> Recebidos</h4>
+                            <div id="container-recebidos" class="orders-list-flow"></div>
+                        </div>
+                        <div class="monitor-box">
+                            <h4><i class="fa-solid fa-fire-burner text-danger"></i> Em Preparo</h4>
+                            <div id="container-preparo" class="orders-list-flow"></div>
+                        </div>
+                        <div class="monitor-box">
+                            <h4><i class="fa-solid fa-circle-check text-success"></i> Prontos</h4>
+                            <div id="container-prontos" class="orders-list-flow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-bi" class="tab-content">
+            <div class="page-header">
+                <h2>Business Intelligence</h2>
+                <p>Indicadores financeiros e operacionais consolidados.</p>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon icon-blue"><i class="fa-solid fa-boxes-stacked"></i></div>
+                    <div class="kpi-data">
+                        <span class="kpi-title">Volume de Pedidos</span>
+                        <h3 id="bi-total-pedidos">0</h3>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon icon-green"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div class="kpi-data">
+                        <span class="kpi-title">Faturamento Bruto</span>
+                        <h3 id="bi-faturamento">R$ 0,00</h3>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon icon-red"><i class="fa-solid fa-ban"></i></div>
+                    <div class="kpi-data">
+                        <span class="kpi-title">Pedidos Estornados</span>
+                        <h3 id="bi-cancelados">0</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bi-charts-section">
+                <div class="chart-card">
+                    <h3><i class="fa-solid fa-crown text-amber"></i> Produtos Mais Vendidos (Top 5)</h3>
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th style="text-align: right;">Vol. Vendido</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bi-table-produtos">
+                                <tr>
+                                    <td colspan="2" class="empty-text">Sem dados operacionais registrados.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-historico" class="tab-content">
+            <div class="page-header">
+                <h2>Histórico de Movimentação</h2>
+                <p>Auditoria completa de pedidos arquivados no banco de dados.</p>
+            </div>
+
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label><i class="fa-solid fa-filter"></i> Filtrar Período:</label>
+                    <select id="filtro-periodo" onchange="aplicarFiltroHistorico()">
+                        <option value="todos">Todo o histórico</option>
+                        <option value="hoje">Apenas Hoje</option>
+                        <option value="mes">Este Mês</option>
+                        <option value="ano">Este Ano</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Nº Pedido</th>
+                            <th>Cliente</th>
+                            <th>Itens Solicitados</th>
+                            <th>Total</th>
+                            <th>Status Atual</th>
+                            <th style="text-align: center;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-historico-corpo"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

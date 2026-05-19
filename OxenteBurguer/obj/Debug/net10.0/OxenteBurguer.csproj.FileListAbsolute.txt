@@ -344,3 +344,7 @@ C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\ob
 C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\obj\Debug\net10.0\OxenteBurguer.pdb
 C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\obj\Debug\net10.0\OxenteBurguer.genruntimeconfig.cache
 C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\obj\Debug\net10.0\ref\OxenteBurguer.dll
+C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\bin\Debug\net10.0\OxenteBurguer.staticwebassets.runtime.json
+C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\obj\Debug\net10.0\compressed\izp9e0hj5q-{0}-rv7nbp1eig-rv7nbp1eig.gz
+C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\obj\Debug\net10.0\compressed\c546uvcv9r-{0}-f2mk414ig4-f2mk414ig4.gz
+C:\Users\023.958586\source\repos\Rayoliveir\Ford-Enter-Back-End\OxenteBurguer\obj\Debug\net10.0\compressed\2n90twa7rz-{0}-i6bwyqidat-i6bwyqidat.gz
