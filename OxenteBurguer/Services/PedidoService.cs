@@ -104,5 +104,35 @@ namespace OxenteBurguer.Services
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<RelatorioVendasDto> GerarRelatorio()
+        {
+            var pedidos = await _context.Pedidos.Include(p => p.Itens).ToListAsync();
+
+            var relatorio = new RelatorioVendasDto
+            {
+                TotalPedidos = pedidos.Count,
+                FaturamentoTotal = pedidos.Sum(p => p.Total),
+                // Aqui contamos quantos pedidos foram deletados ou se você tiver um status "Cancelado"
+                PedidosCancelados = 0,
+
+                // Lógica para pegar os produtos mais vendidos
+                ProdutosMaisVendidos = pedidos
+                    .SelectMany(p => p.Itens)
+                    .GroupBy(i => i.Nome)
+                    .Select(g => new ProdutoVendidoDto
+                    {
+                        Nome = g.Key,
+                        Quantidade = g.Count()
+                    })
+                    .OrderByDescending(x => x.Quantidade)
+                    .Take(5) // Top 5 mais vendidos
+                    .ToList()
+            };
+
+            return relatorio;
+        }
     }
+
+
 }
